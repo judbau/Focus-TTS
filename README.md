@@ -2,14 +2,14 @@
 
 This repository contains the questionnaire and the stimuli that were used in a listening test to investigate the effect of focus-sensitive prosody in synthetic speech. 
 
-Background:
+## Background
 The listening test was part of a study that was conducted for the Thesis project "Improving the naturalness of an end-to-end speech synthesis system with information structure". The study examines whether the naturalness of a synthetic voice that produces sequences of sentences is improved when the prosody of its sentences is modified so that it better matches the current context. For this purpose, we replicated an approach proposed by \textcite{latif2021} that uses control tags for prosody modification in end-to-end TTS systems. We used this approach to synthesize isolated sentences and paragraphs in English where prosody accords with the contextually induced focus types. We also trained a second TTS system that does not allow prosody control. In a subsequently conducted mean opinion score (MOS) study, isolated sentences and paragraphs achieve higher naturalness ratings when synthesized with the system that marks foci prosodically. This suggests that a more context-appropriate prosody can improve the naturalness of synthetic voices, not only when producing sequences of sentences but also when producing sentences in isolation. In addition, across the two systems, paragraphs receive lower ratings than isolated sentences. This strengthens the idea that the naturalness of a TTS system that has been evaluated on isolated sentences may decrease when the same system is used for the synthesis of larger texts or conversations This should be taken into account when designing and interpreting the evaluation of a TTS system.
 
-Stimuli:
+## Stimuli
 The "Stimuli" directory contains the 24 stimuli that were used in the listening test. They were synthesized using the sentences in "Text_input.pdf". The 12 stimuli in the subdirectory called "no_tag_model" were synthesized with the baseline model, i.e., with the model that was trained without control tags. Six isolated sentences and 6 paragraphs were synthesized with this model (see sub-subdirectories). The 12 stimuli in the subdirectory called "tags_model" were synthesized with the text model, i.e., with the model that was trained with tags marking foci and questions. With this model as well, 6 isolated sentences and 6 paragraphs were synthesized (See, again, sub-subdirectories). The test model paragraphs were synthesized with tags that mark the narrow foci on the subject or the verb of the second sentence with the objective of inducing a narrow-focus intonation.
 
-Questionnaire:
+## Questionnaire
 The file Questionnaire.pdf contains the questionnaire that was used for the listening test. It consits of an introduction, followed by the collection of demographic data, instructions to the listening test and the listening test (stimuli rating). The stimuli were presented to participants in random order. They were asked to rate each stimulus on a 9-point scale from bad to excellent.
 
-Text input:
+## Text input
 The file Test_input.pdf contains the lines of text that were used during inference (i.e., synthesis) of the stimuli. For the inference with the test model, the sign '!' was used as a tag to indicate to the model that there is a narrow corrective focus on a word. 
