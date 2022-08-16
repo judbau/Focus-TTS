@@ -1,0 +1,19 @@
+output	text
+01_tm_Mark_ate_the_cookie.wav	Mark ate the cookie. 
+02_tm_Toby_booked_the_hotel.wav	Toby booked the hotel.
+03_tm_Andy_started_the_plane.wav	Andy started the plane.
+07_tm_Phyllis_saw_the_doctor.wav	Phyllis saw the doctor.
+08_tm_Lisa_heard_the_ocean.wav	Lisa heard the ocean.
+09_tm_Sarah_liked_the_movie.wav	Sarah liked the movie.
+10a_tm_subj_Jan_didnt_buy_the_tickets.wav	Jan didn’t buy the tickets. 
+10b_tm_subj_MICHAEL_bought_them.wav	! Michael bought them.
+11a_tm_subj_Bob_didnt_win_the_price.wav	Bob didn't win the price.
+11b_tm_subj_BRENDA_won_it.wav	! Brenda won it.
+12a_tm_subj_Katy_didnt_give_the_speech.wav	Katy didn't give the speech.
+12b_tm_subj_CYNTHIA_gave_it.wav	! Cynthia gave it.
+16a_tm_verb_Kevin_didn't_make_the_salad.wav	Kevin didn't make the salad.
+16b_tm_verb_He_BOUGHT_the_salad.wav	He ! bought the salad.
+17a_tm_verb_Mary_didnt_hate_the_show.wav	Mary didn't hate the show.
+17b_tm_verb_She_LOVED_the_show.wav	She ! loved the show.
+18a_tm_verb_Hannah_didnt_trow_out_the_letter.wav	Hannah didn't throw out the letter.
+18b_tm_verb_She_LOST_it.wav	She ! lost the letter.
