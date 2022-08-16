@@ -64,9 +64,6 @@ The "Stimuli" directory contains the 24 stimuli that were synthesized for the li
 ### Questionnaire
 The file "Questionnaire.pdf" contains the questionnaire that was used for the listening test. It consists of an introduction, followed by the collection of demographic data, instructions for the listening test, and the listening test (stimuli rating). The stimuli were presented to participants in random order. They were asked to rate each stimulus on a 9-point scale from bad to excellent.
 
-### Text input
-The file "Text_input.pdf" contains the lines of text that were used during inference (i.e., synthesis) of the stimuli. For the inference with the test model, the sign '!' was used as a tag to indicate to the model that a word carries a narrow corrective focus. 
-
 ## Bibliography
 Latif, Siddique and Kim, Inyoung and Calapodescu, Ioan and Besacier, Laurent (2021) Controlling Prosody in End-to-End TTS: A Case Study on Contrastive Focus Generation. In: 25th Conference on Computational Natural Language Learning (CoNLL 2021), 10 Nov - 11 Nov 2021, Punta Cana, Dominican Republic. 
 
