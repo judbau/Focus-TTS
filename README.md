@@ -26,7 +26,7 @@ The following steps were taken to prepare the dataset for training the **test mo
   - All letters were converted to lowercase
   - All transcriptions were duplicated
 
--> The script create_metadata.py was used for these modifications
+The script create_metadata.py was used for these modifications.
 
 - The WAV files were modified:
   - They were re-sampled to a frequency of 22050 Hz using convert_wavs_to_22050.py
