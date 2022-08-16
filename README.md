@@ -10,40 +10,64 @@ The listening test was part of a study that was conducted for the Thesis project
 
 The NVIDIA FastPitch implementation was used to train both models: https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/FastPitch
 
-A sigularity container was used for data pre-processing, training, and inference.
+A Singularity container was used for data pre-processing, training, and inference.
 
 ### Data
-The 'prosody-control' dataset created by Latif et al. (2021) was used to train both models. The dataset was made publicly availble by the authors. It can be downloaded via https://download.europe.naverlabs.com/prosody-control/.
+The 'prosody-control' dataset created by Latif et al. (2021) was used to train both models. The dataset was made publicly available by the authors. It can be downloaded via https://download.europe.naverlabs.com/prosody-control/.
 
-### Data preparation
+### Dataset preparation
 
 The following steps were taken to prepare the dataset for training the **test model**:
 
-- A metadata file was created that contains the name of all audio files together with their transcriptios. To create this file: 
+- A metadata file was created that contains the name of all audio files together with their transcriptions. To create this file: 
 
-  - All superfluous annotations (everything besides audio number and sentence type), and punctuation marks were removed
+  - All superfluous annotations (everything besides audio number and sentence type) and punctuation marks were removed
   - Control tags were added: '!' and a space before corrective foci, '?' and a space before questions
   - All letters were converted to lowercase
   - All transcriptions were duplicated
 
--> via create_metadata.py
+-> The script create_metadata.py was used for these modifications
 
 - The WAV files were modified:
   - They were re-sampled to a frequency of 22050 Hz using convert_wavs_to_22050.py
-  - They were converted to 16-bit WAV format using convert_to_16bits.sh
+  - They were converted to 16-bit WAV format using convert_wavs_to_16bits.sh
   - Silence before and after speech was removed with a threshold of 30dB using trim_silence.py
 
-The same, prepared data was used to train the **baseline model**. However, before training the baseline model, the control tags were removed from the transcriptions. 
+The same prepared data was used to train the **baseline model**. However, before training the baseline model, the control tags were removed from the transcriptions. 
 
-### Synthesis of the stimuli
-The "Stimuli" directory contains the 24 stimuli that were synthesized for the listening test. They were synthesized using the sentences in "Text_input.pdf". The 12 stimuli in the subdirectory called "no_tag_model" were synthesized with the baseline model, i.e., with the model that was trained without control tags. Six isolated sentences and 6 paragraphs were synthesized with this model (see sub-subdirectories). The 12 stimuli in the subdirectory called "tags_model" were synthesized with the text model, i.e., with the model that was trained with tags marking foci and questions. With this model as well, 6 isolated sentences and 6 paragraphs were synthesized (see, again, sub-subdirectories). Paragraphs were synthesized in two steps: First, the two sentences of the paragraph were synthesized individually. Second, the two sentences were concatenated with a pause of 100 ms between them. The test model paragraphs were synthesized with tags that mark the narrow foci on the subject or the verb of the second sentence with the objective of inducing a narrow-focus intonation.
+### Pre-processing
+
+The scripts prepare_dataset.py and prepare_dataset.sh from the NVIDIA FastPitch implementation were used to pre-process the data.
+
+### Training
+
+The scripts train.py and train.sh from the NVIDIA FastPitch implementation were used for training. The parameters were set in the train.sh file. The following parameters were used:
+
+number of GPUS = 1 
+batch size = 16
+grad accumulation = 16
+learning rate = 0.1
+AMP = false
+
+Both models were trained for 400 epochs.
+
+A pre-trained WaveGlow model (Prenger et al. 2019) was used as a vocoder. It was downloaded using the download_dataset.sh script of the NVIDIVA FastPitch implementation. 
+
+### Synthesis
+The scripts inference.py and inference_example.sh from the NVIDIA FastPitch implementation were used for inference. The file stimuli_no_tags.tsv was used for synthesis with the baseline model. The file stimuli_tags.tsv was used for synthesis with the test model. 
+
+Paragraphs were synthesized in two steps: First, the two sentences of the paragraph were synthesized individually. Second, the two sentences were concatenated with a pause of 100 ms between them. The test model paragraphs were synthesized with tags that mark the narrow foci on the subject or the verb of the second sentence with the objective of inducing a narrow-focus intonation.
+
+The "Stimuli" directory contains the 24 stimuli that were synthesized for the listening test. The subdirectory called "no_tag_model" contains the 12 stimuli that were synthesized with the baseline model. Six isolated sentences and 6 paragraphs were synthesized with this model (see sub-subdirectories). The subdirectory called "tags_model" contains the 12 stimuli that were synthesized with the test model. With this model, as well, 6 isolated sentences and 6 paragraphs were synthesized (see sub-subdirectories). 
 
 ## Listening test
 ### Questionnaire
-The file "Questionnaire.pdf" contains the questionnaire that was used for the listening test. It consits of an introduction, followed by the collection of demographic data, instructions to the listening test and the listening test (stimuli rating). The stimuli were presented to participants in random order. They were asked to rate each stimulus on a 9-point scale from bad to excellent.
+The file "Questionnaire.pdf" contains the questionnaire that was used for the listening test. It consists of an introduction, followed by the collection of demographic data, instructions for the listening test, and the listening test (stimuli rating). The stimuli were presented to participants in random order. They were asked to rate each stimulus on a 9-point scale from bad to excellent.
 
 ### Text input
-The file "Test_input.pdf" contains the lines of text that were used during inference (i.e., synthesis) of the stimuli. For the inference with the test model, the sign '!' was used as a tag to indicate to the model that a word carries a narrow corrective focus. 
+The file "Text_input.pdf" contains the lines of text that were used during inference (i.e., synthesis) of the stimuli. For the inference with the test model, the sign '!' was used as a tag to indicate to the model that a word carries a narrow corrective focus. 
 
 ## Bibliography
 Latif, Siddique and Kim, Inyoung and Calapodescu, Ioan and Besacier, Laurent (2021) Controlling Prosody in End-to-End TTS: A Case Study on Contrastive Focus Generation. In: 25th Conference on Computational Natural Language Learning (CoNLL 2021), 10 Nov - 11 Nov 2021, Punta Cana, Dominican Republic. 
+
+Prenger, Ryan, Rafael Valle, and Bryan Catanzaro (2019) Waveglow: A flow-based generative network for speech synthesis. In ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 3617–3621. IEEE.
