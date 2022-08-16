@@ -50,11 +50,11 @@ The scripts train.py and train.sh from the NVIDIA FastPitch implementation were 
 - AMP = false
 
 Both models were trained for 400 epochs. You can download the resulting checkpoints here: 
-- [baseline model (trained without tags)](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/FastPitch_checkpoint_notags_400.pt)
-- [test model (trained with tags)](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/FastPitch_checkpoint_withtags_400.pt)
+- [baseline model (trained without tags)](https://drive.google.com/file/d/1yoTGj-3w1uT3RLGc1by9BoZOICqZl5HP/view?usp=sharing)
+- [test model (trained with tags)](https://drive.google.com/file/d/1q90EQTHfJ8r6wrrWbgfRkodTU5WIaJoZ/view?usp=sharing)
 
 ### Synthesis
-A pre-trained WaveGlow model (Prenger et al. 2019) was used as a vocoder. It was downloaded using the download_dataset.sh script of the NVIDIVA FastPitch implementation. It can also be downloaded [here](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/nvidia_waveglow256pyt_fp16.pt). The scripts inference.py and inference_example.sh from the NVIDIA FastPitch implementation were used for inference. The file stimuli_no_tags.tsv was used for synthesis with the baseline model. The file stimuli_tags.tsv was used for synthesis with the test model. 
+A pre-trained WaveGlow model (Prenger et al. 2019) was used as a vocoder. It was downloaded using the download_dataset.sh script of the NVIDIVA FastPitch implementation. It can also be downloaded [here](https://drive.google.com/file/d/1KjwqmUql_OydpimlWI6sBO9akuJ18-bV/view?usp=sharing). The scripts inference.py and inference_example.sh from the NVIDIA FastPitch implementation were used for inference. The file stimuli_no_tags.tsv was used for synthesis with the baseline model. The file stimuli_tags.tsv was used for synthesis with the test model. 
 
 Paragraphs were synthesized in two steps: First, the two sentences of the paragraph were synthesized individually. Second, the two sentences were concatenated with a pause of 100 ms between them. The test model paragraphs were synthesized with tags that mark the narrow foci on the subject or the verb of the second sentence with the objective of inducing a narrow-focus intonation.
 
