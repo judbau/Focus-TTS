@@ -56,7 +56,7 @@ A pre-trained WaveGlow model (Prenger et al. 2019) was used as a vocoder. It was
 
 Paragraphs were synthesized in two steps: First, the two sentences of the paragraph were synthesized individually. Second, the two sentences were concatenated with a pause of 100 ms between them. The test model paragraphs were synthesized with tags that mark the narrow foci on the subject or the verb of the second sentence with the objective of inducing a narrow-focus intonation.
 
-The "Stimuli" directory contains the 24 stimuli that were synthesized for the listening test. The subdirectory called "no_tag_model" contains the 12 stimuli that were synthesized with the baseline model. Six isolated sentences and 6 paragraphs were synthesized with this model (see sub-subdirectories). The subdirectory called "tags_model" contains the 12 stimuli that were synthesized with the test model. With this model, as well, 6 isolated sentences and 6 paragraphs were synthesized (see sub-subdirectories). 
+The "Stimuli" directory contains the 24 stimuli that were synthesized for the listening test. The subdirectory called "no_tags_model" contains the 12 stimuli that were synthesized with the baseline model. Six isolated sentences and 6 paragraphs were synthesized with this model (see sub-subdirectories). The subdirectory called "tags_model" contains the 12 stimuli that were synthesized with the test model. With this model, as well, 6 isolated sentences and 6 paragraphs were synthesized (see sub-subdirectories). 
 
 ## Listening test
 ### Questionnaire
