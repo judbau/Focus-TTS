@@ -50,8 +50,8 @@ The scripts train.py and train.sh from the NVIDIA FastPitch implementation were 
 - AMP = false
 
 Both models were trained for 400 epochs. You can download the resulting checkpoints here: 
-[baseline model (trained without tags)](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/FastPitch_checkpoint_notags_400.pt)
-[test model (trained with tags)](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/FastPitch_checkpoint_withtags_400.pt)
+- [baseline model (trained without tags)](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/FastPitch_checkpoint_notags_400.pt)
+- [test model (trained with tags)](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/FastPitch_checkpoint_withtags_400.pt)
 
 ### Synthesis
 A pre-trained WaveGlow model (Prenger et al. 2019) was used as a vocoder. It was downloaded using the download_dataset.sh script of the NVIDIVA FastPitch implementation. It can also be downloaded [here](https://googledrive.com/host/1VFvzS2Ly8KWGN-E3F_337MsxjlCWJKpd/nvidia_waveglow256pyt_fp16.pt). The scripts inference.py and inference_example.sh from the NVIDIA FastPitch implementation were used for inference. The file stimuli_no_tags.tsv was used for synthesis with the baseline model. The file stimuli_tags.tsv was used for synthesis with the test model. 
