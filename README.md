@@ -43,18 +43,16 @@ The scripts prepare_dataset.py and prepare_dataset.sh from the NVIDIA FastPitch 
 
 The scripts train.py and train.sh from the NVIDIA FastPitch implementation were used for training. The parameters were set in the train.sh file. The following parameters were used:
 
-number of GPUS = 1 
-batch size = 16
-grad accumulation = 16
-learning rate = 0.1
-AMP = false
+- number of GPUS = 1 
+- batch size = 16
+- grad accumulation = 16
+- learning rate = 0.1
+- AMP = false
 
 Both models were trained for 400 epochs.
 
-A pre-trained WaveGlow model (Prenger et al. 2019) was used as a vocoder. It was downloaded using the download_dataset.sh script of the NVIDIVA FastPitch implementation. 
-
 ### Synthesis
-The scripts inference.py and inference_example.sh from the NVIDIA FastPitch implementation were used for inference. The file stimuli_no_tags.tsv was used for synthesis with the baseline model. The file stimuli_tags.tsv was used for synthesis with the test model. 
+A pre-trained WaveGlow model (Prenger et al. 2019) was used as a vocoder. It was downloaded using the download_dataset.sh script of the NVIDIVA FastPitch implementation. The scripts inference.py and inference_example.sh from the NVIDIA FastPitch implementation were used for inference. The file stimuli_no_tags.tsv was used for synthesis with the baseline model. The file stimuli_tags.tsv was used for synthesis with the test model. 
 
 Paragraphs were synthesized in two steps: First, the two sentences of the paragraph were synthesized individually. Second, the two sentences were concatenated with a pause of 100 ms between them. The test model paragraphs were synthesized with tags that mark the narrow foci on the subject or the verb of the second sentence with the objective of inducing a narrow-focus intonation.
 
